@@ -50,8 +50,8 @@ escaped_pkg2=$(printf '%s\n' "$NEW_JAVA_PACKAGE_NAME" | sed 's/[.[\*^$]/\\&/g')
 # Escape the special characters in the author name:
 link1="https://willmolloy.com>Will Molloy"
 link2="https://hiranpatel.com>Hiran Patel"
-escaped_link1=$(printf '%s\n' "$link1" | sed 's/[.[\*^$]/\\&/g')
-escaped_link2=$(printf '%s\n' "$link2" | sed 's/[&/\]/\\&/g')
+escaped_link1=$(printf '%s\n' "$link1" | sed 's/[.[\*^$\/]/\\&/g')
+escaped_link2=$(printf '%s\n' "$link2" | sed 's/[.[\*^$\/]/\\&/g')
 
 find * -type f -name "*" ! -name "refactor.sh" -print0 | xargs -0 sed -i "s/$escaped_pkg1/$escaped_pkg2/g"
 find * -type f -name "*" ! -name "refactor.sh" -print0 | xargs -0 sed -i "s/$PROJECT_NAME/$NEW_PROJECT_NAME/g"
